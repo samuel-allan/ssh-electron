@@ -11,8 +11,6 @@ function createWindowTerminal(server, username, name)
   //no menu bar
   win.setMenu(null);
 
-  win.toggleDevTools();
-
   // and load the index.html of the app.
 
   win.loadURL('file://' + __dirname + '/terminal.html?server=' + server + '&user=' + username + '&name=' + name);
@@ -26,11 +24,23 @@ function createWindowTerminal(server, username, name)
     win = null;
   });
 }
-
+var ssh_server = "";
+var ssh_user = "";
+var ssh_name = "";
 $(document).ready(function (){
   $('[name=run-terminal]').click(function(event) {
-    createWindowTerminal($(this).attr('ssh-server'), $(this).attr('ssh-user'), $(this).attr('ssh-name'));
+    $('#myModal').modal();
+    ssh_server = $(this).attr('ssh-server');
+    ssh_user = $(this).attr('ssh-user');
+    ssh_name = $(this).attr('ssh-name');
   });
+
+  $('#passwd_submit').click(function() {
+    var passwd = $('#pass_field').val();
+    $('#pass_field').html("");
+    createWindowTerminal(ssh_user, ssh_user, ssh_name, passwd);
+  })
+
 });
 
 // Or load a local HTML file

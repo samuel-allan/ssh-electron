@@ -3,11 +3,12 @@ $(function() {
   $('title').html(findGetParameter('user') + '@' + findGetParameter('server') + ' (' + findGetParameter('name') + ')');
   // Set the command-line prompt to include the user's IP Address
   //$('.prompt').html('[' + codehelper_ip["IP"] + '@HTML5] # ');
-    $('.prompt').html('[' + findGetParameter('user') + '@' + findGetParameter('server') + '] $ ');
-
   // Initialize a new terminal object
+
+  $('.prompt').html('[' + findGetParameter('user') + '@' + findGetParameter('server') + '] $ ');
   var term = new Terminal('#input-line .cmdline', '#container output');
   term.init();
+
 
 });
 
