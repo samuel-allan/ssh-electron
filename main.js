@@ -8,7 +8,7 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 200, height: 600})
+  win = new BrowserWindow({width: 450, height: 640})
 
   //no menu bar
   win.setMenu(null);
