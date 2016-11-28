@@ -13,6 +13,9 @@ function createWindow () {
   //no menu bar
   win.setMenu(null);
 
+  //debugging sometimes needed, so yeah
+  //win.toggleDevTools();
+
   // and load the index.html of the app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
