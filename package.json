@@ -1,24 +1,25 @@
 {
   "name": "ssh-electron",
   "version": "1.0.0",
-  "description": "An electron port of PuTTY, a popular SSH GUI",
+  "description": "Test",
   "main": "main.js",
+  "dependencies": {
+    "bootflat": "^2.0.4",
+    "electron": "^1.4.7",
+    "simple-ssh": "^0.9.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/samuel-allan/ssh-electron"
+    "url": "git+https://github.com/samuel-allan/ssh-electron.git"
   },
-  "keywords": [
-    "SSH",
-    "electron"
-  ],
   "author": "Samuel Allan <naclo3samuel@gmail.com>",
   "license": "Apache-2.0",
-  "dependencies": {
-    "electron": "^1.4.7",
-    "photon": "connors/photon"
-  }
+  "bugs": {
+    "url": "https://github.com/samuel-allan/ssh-electron/issues"
+  },
+  "homepage": "https://github.com/samuel-allan/ssh-electron#readme"
 }
