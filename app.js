@@ -15,7 +15,6 @@ function createWindowTerminal(server, username, name)
 
   win.loadURL('file://' + __dirname + '/terminal.html?server=' + server + '&user=' + username + '&name=' + name);
   //win.loadURL("http://codepen.io/AndrewBarfield/full/qEqWMq/");
-
   // Emitted when the window is closed.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
@@ -39,7 +38,21 @@ $(document).ready(function (){
     var passwd = $('#pass_field').val();
     $('#pass_field').html("");
     createWindowTerminal(ssh_user, ssh_user, ssh_name, passwd);
-  })
+  });
+
+  $('#clear_passwd').click(function() {
+    $('#pass_field').html("");
+  });
+
+  /*$('#flat-checkbox-2').iCheck({
+    checkboxClass: 'icheckbox_flat',
+    radioClass: 'iradio_flat'
+  });*/
+
+  $('#add-server-btn').click(function() {
+    $('#add-server-modal').modal();
+
+  });
 
 });
 

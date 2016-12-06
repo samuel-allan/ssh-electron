@@ -1,6 +1,6 @@
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,7 +14,7 @@ function createWindow () {
   win.setMenu(null);
 
   //debugging sometimes needed, so yeah
-  //win.toggleDevTools();
+  win.toggleDevTools();
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -50,7 +50,7 @@ app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {
-    createWindow()
+    createWindow();
   }
 })
 

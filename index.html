@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <link href="./node_modules/bootflat/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="./node_modules/bootflat/css/site.min.css" rel="stylesheet" type="text/css" />
+    <link href="./node_modules/bootflat/bootflat/css/bootflat.min.css" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://samuelallan.info/proxy_guarantee/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script>
+    window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
+    </script>
     <link href="css/SSH_Electron_Project.css" rel="stylesheet" type="text/css" />
     <title>Welcome to SSH-Electron service!</title>
 
   </head>
   <body>
     <div class="container">
-      <a class="btn btn-info btn-block"><span class="glyphicon glyphicon-plus"></span> Add SSH Server</a>
+      <a class="btn btn-info btn-block" id="add-server-btn"><span class="glyphicon glyphicon-plus"></span> Add SSH Server</a>
       <a class="btn btn-default btn-block"><span class="glyphicon glyphicon-wrench"></span> Options</a>
       <br />
       <div class="list-group">
@@ -39,7 +44,66 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" id="passwd_submit">Connect</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" id="clear_passwd" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="add-server-modal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add SSH server</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="new-server-addr">
+                  Server Address
+                </label>
+                <input class="form-control" type="text" name="new-server-addr" id="new-server-addr" />
+              </div>
+              <div class="form-group">
+                <label for="new-server-addr-port">
+                  Server Port
+                </label>
+                <div class="stepper">
+                  <input type="number" class="form-control" id="new-server-addr-port" value="21"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="checkbox checkbox-primary">
+                  <input type="checkbox" id="checkbox6" >
+                  <label for="checkbox6">
+                    Use a default username
+                  </label>
+                </div>
+                <input class="form-control" type="text" id="add_serv_username" placeholder="eg root" />
+              </div>
+              <div class="form-group">
+                <div class="checkbox checkbox-primary">
+  						    <input type="checkbox" id="checkbox4" disabled>
+  						    <label for="checkbox4">
+  						        Remember Password
+  						    </label>
+  						  </div>
+                <span class="text-muted">
+                  <small>
+                    In order to remember passwords, you must set a master password in Options.
+                  </small>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="passwd_submit">Connect</button>
+            <button type="button" class="btn btn-default" id="clear_passwd" data-dismiss="modal">Close</button>
           </div>
         </div>
 
@@ -47,9 +111,8 @@
     </div>
 
   </body>
-  <script>
-  window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
-  </script>
-  <script src="bootstrap.min.js"></script>
+  <script src="./node_modules/bootflat/js/bootstrap.min.js"></script>
+  <script src="./node_modules/bootflat/bootflat/js/jquery.fs.selecter.min.js"></script>
+  <script src="./node_modules/bootflat/bootflat/js/jquery.fs.stepper.min.js"></script>
   <script src="app.js"></script>
 </html>
